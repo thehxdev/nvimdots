@@ -32,18 +32,18 @@
 #+end_src
 
 * Explaning each file
-1. *init.lua*:
+1. ~init.lua~:
    This file is where all of your config files come together.
    When you add a new config file to ~$HOME/.config/nvim/lua/user/~, you have to ~require~ it to executed.
 
-2. *options.lua*:
-   Some options to configure neovim.
+2. ~options.lua~:
+   Some options to configure neovim. You can edit that to cover your needs.
 
-3. *keymaps.lua*:
+3. ~keymaps.lua~:
    All keybindings for neovim.
 
-4. *plugins.lua*
-
+4. ~plugins.lua~:
+   Put your plugins here. When you save this file, packer automaticlly installs plugins. If it didn't do that, just run ~:PackerInstall~.
 
 * init.lua
 + This file is where all of your config files come together.
