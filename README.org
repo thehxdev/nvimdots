@@ -1,0 +1,45 @@
+#+title: Neovim Lua Config Files
+#+author: Hossein Khosravi
+
+* TABLE OF CONTENT :toc:
+- [[#directory-structure][Directory Structure]]
+- [[#initlua][init.lua]]
+
+* Directory Structure
+#+begin_src shell
+.
+├── init.lua
+├── lua
+│   └── user
+│       ├── cmp.lua
+│       ├── colorscheme.lua
+│       ├── keymaps.lua
+│       ├── lsp
+│       │   ├── handlers.lua
+│       │   ├── init.lua
+│       │   ├── lsp-installer.lua
+│       │   └── settings
+│       │       ├── jsonls.lua
+│       │       ├── pyright.lua
+│       │       └── sumneko_lua.lua
+│       ├── options.lua
+│       └── plugins.lua
+└── plugin
+    └── packer_compiled.lua
+
+5 directories, 13 files
+#+end_src
+
+#+RESULTS:
+
+* init.lua
++ This file is where all of your config files come together.
+  When you add a new config file to ~$HOME/.config/nvim/lua/user/~, you have to ~require~ it to executed.
+#+begin_src lua
+require "user.options"
+require "user.keymaps"
+require "user.plugins"
+require "user.colorscheme"
+require "user.cmp"
+require "user.lsp"
+#+end_src
