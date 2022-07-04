@@ -3,6 +3,7 @@
 
 * TABLE OF CONTENT :toc:
 - [[#directory-structure][Directory Structure]]
+- [[#explaning-each-file][Explaning each file]]
 - [[#initlua][init.lua]]
 
 * Directory Structure
@@ -29,6 +30,20 @@
 
 5 directories, 13 files
 #+end_src
+
+* Explaning each file
+1. *init.lua*:
+   This file is where all of your config files come together.
+   When you add a new config file to ~$HOME/.config/nvim/lua/user/~, you have to ~require~ it to executed.
+
+2. *options.lua*:
+   Some options to configure neovim.
+
+3. *keymaps.lua*:
+   All keybindings for neovim.
+
+4. *plugins.lua*
+
 
 * init.lua
 + This file is where all of your config files come together.
