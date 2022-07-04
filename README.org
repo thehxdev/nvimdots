@@ -30,8 +30,6 @@
 5 directories, 13 files
 #+end_src
 
-#+RESULTS:
-
 * init.lua
 + This file is where all of your config files come together.
   When you add a new config file to ~$HOME/.config/nvim/lua/user/~, you have to ~require~ it to executed.
