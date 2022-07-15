@@ -47,12 +47,14 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs"  -- Autopairs, integrates with both cmp and treesitter
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
+  use "ryanoasis/vim-devicons"
 
 
   -- colorschemes 
   use "morhetz/gruvbox"       -- gruvbox colorscheme
   use "lunarvim/colorschemes" -- more colorschemes
   use "folke/tokyonight.nvim" -- tokyonight colorscheme
+  use "dracula/vim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"         -- The completion plugin
@@ -75,7 +77,7 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  use "p00f/nvim-ts-rainbow"
+  --use "p00f/nvim-ts-rainbow"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
