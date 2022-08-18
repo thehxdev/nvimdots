@@ -48,6 +48,8 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
   use "ryanoasis/vim-devicons"
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"
 
 
   -- colorschemes 
@@ -55,6 +57,7 @@ return packer.startup(function(use)
   use "lunarvim/colorschemes" -- more colorschemes
   use "folke/tokyonight.nvim" -- tokyonight colorscheme
   use "dracula/vim"
+  use 'tanvirtin/monokai.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"         -- The completion plugin
