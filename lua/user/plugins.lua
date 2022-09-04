@@ -57,7 +57,7 @@ return packer.startup(function(use)
   use "lunarvim/colorschemes" -- more colorschemes
   use "folke/tokyonight.nvim" -- tokyonight colorscheme
   use "dracula/vim"
-  use 'tanvirtin/monokai.nvim'
+  use 'hxdevlover/monokai.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"         -- The completion plugin
