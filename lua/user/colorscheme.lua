@@ -28,14 +28,6 @@ end
 -- ---------------------------------------------------------- --
 
 -- ######################## --
---  Material Theme Options  --
--- ######################## --
-
---vim.g.material_style = "deep ocean"  -- darker, lighter, oceanic, palenight, deep ocean
-
--- ---------------------------------------------------------- --
-
--- ######################## --
 --    Nord Theme Options    --
 -- ######################## --
 
@@ -56,15 +48,3 @@ end
 --vim.g.italic_comment = true -- default false
 --vim.g.lualine_bg_color = "#44475a", -- default nil
 
--- ---------------------------------------------------------- --
-
--- ######################## --
---   Sonokai Theme Options  --
--- ######################## --
-
---vim.g.sonokai_style = "andromeda"  -- default, atlantis, andromeda, shusia, maia, espresso
---vim.g.sonokai_disable_italic_comment = 0  -- 1 or 0
---vim.g.sonokai_enable_italic = 1  -- 1 or 0
---vim.g.sonokai_cursor = auto  -- auto, red, orange, yellow, green, blue, purple
---vim.g.sonokai_transparent_background = 0  -- 1 or 0 or 2
---vim.g.sonokai_disable_terminal_colors = 0
