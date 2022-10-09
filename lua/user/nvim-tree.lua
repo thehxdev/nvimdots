@@ -54,8 +54,14 @@ nvim_tree.setup {
   },
 
   view = {
-    width = 30,
-    height = 30,
+	float = {
+	  open_win_config = {
+		width = 30,
+		height = 30,
+	  }
+	},
+    --width = 30,
+    --height = 30,
     hide_root_folder = false,
     side = "left",
     mappings = {

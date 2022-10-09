@@ -23,8 +23,7 @@ vim.cmd [[
   augroup end
 ]]
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
+-- Use a protected call so we don't error out on first use local status_ok, packer = pcall(require, "packer")
 if not status_ok then
   return
 end
@@ -53,12 +52,14 @@ return packer.startup(function(use)
 
 
   -- colorschemes 
-  use "morhetz/gruvbox"       -- gruvbox colorscheme
-  use "lunarvim/colorschemes" -- more colorschemes
-  use "folke/tokyonight.nvim" -- tokyonight colorscheme
-  use "dracula/vim"
+  use 'ellisonleao/gruvbox.nvim'
+  use "lunarvim/colorschemes" 
+  use "folke/tokyonight.nvim" 
+  use "Mofiqul/dracula.nvim"
   use 'hxdevlover/monokai.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
+  use "rafamadriz/neon"
+  use 'shaunsingh/nord.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"         -- The completion plugin
@@ -89,6 +90,9 @@ return packer.startup(function(use)
   -- LSP
   use "neovim/nvim-lspconfig"           -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+
+  -- Go
+  use "fatih/vim-go"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

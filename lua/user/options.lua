@@ -8,8 +8,7 @@ vim.opt.fileencoding = "utf-8"                  -- the encoding written to a fil
 vim.opt.hlsearch = true                         -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true                       -- ignore case in search patterns
 vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
-vim.opt.pumheight = 10                          -- pop up menu height
-vim.opt.showmode = true                        -- we don't need to see things like -- INSERT -- anymore
+vim.opt.pumheight = 10                          -- pop up menu height vim.opt.showmode = true                        -- we don't need to see things like -- INSERT -- anymore
 vim.opt.showtabline = 2                         -- always show tabs
 vim.opt.smartcase = true                        -- smart case
 vim.opt.smartindent = true                      -- make indenting smarter again
@@ -21,7 +20,7 @@ vim.opt.timeoutlen = 1000                       -- time to wait for a mapped seq
 vim.opt.undofile = true                         -- enable persistent undo
 vim.opt.updatetime = 300                        -- faster completion (4000ms default)
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-vim.opt.expandtab = true                        -- convert tabs to spaces
+vim.opt.expandtab = false                       -- convert tabs to spaces
 vim.opt.shiftwidth = 4                          -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4                             -- insert 2 spaces for a tab
 vim.opt.cursorline = true                       -- highlight the current line
@@ -33,9 +32,49 @@ vim.opt.wrap = false                            -- display lines as one long lin
 vim.opt.scrolloff = 4                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h14"               -- the font used in graphical neovim applications
+vim.g.material_style = "deep ocean"  -- darker, lighter, oceanic, palenight, deep ocean
 
 vim.opt.shortmess:append "c"
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+
+-- ################################## --
+--          ColorSchemes              --
+-- ################################## --
+
+-- ---------------------------------------------------------- --
+
+-- ######################## --
+--   Neon Theme Options     --
+-- ######################## --
+
+--vim.g.neon_style = "doom"  -- default , doom , dark
+--vim.g.neon_italic_keyword = true
+--vim.g.neon_italic_function = true
+--vim.g.neon_transparent = false
+
+-- ---------------------------------------------------------- --
+
+-- ######################## --
+--    Nord Theme Options    --
+-- ######################## --
+
+--vim.g.nord_contrast = true
+--vim.g.nord_borders = false
+--vim.g.nord_disable_background = false
+--vim.g.nord_italic = true
+--vim.g.nord_uniform_diff_background = true
+
+-- ---------------------------------------------------------- --
+
+-- ######################## --
+--   Dracula Theme Options  --
+-- ######################## --
+
+--vim.g.show_end_of_buffer = true -- default false
+--vim.g.transparent_bg = false -- default false
+--vim.g.italic_comment = true -- default false
+--vim.g.lualine_bg_color = "#44475a", -- default nil
+
