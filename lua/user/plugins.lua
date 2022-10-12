@@ -23,6 +23,7 @@ vim.cmd [[
   augroup end
 ]]
 
+local status_ok, packer = pcall(require, "packer")
 -- Use a protected call so we don't error out on first use local status_ok, packer = pcall(require, "packer")
 if not status_ok then
   return
