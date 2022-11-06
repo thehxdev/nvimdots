@@ -57,7 +57,7 @@ return packer.startup(function(use)
   use "lunarvim/colorschemes" 
   use "folke/tokyonight.nvim" 
   use "Mofiqul/dracula.nvim"
-  use 'hxdevlover/monokai.nvim'
+  use 'thehxdev/monokai.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
   use "rafamadriz/neon"
   use 'shaunsingh/nord.nvim'
