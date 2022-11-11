@@ -40,6 +40,8 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-m>", ":Bdelete<CR>", opts)
 
+keymap("n", "<S-j>", ":<CR>", opts)
+
 -- Insert --
 -- Press jk fast to enter
 --keymap("i", "jk", "<ESC>", opts)
