@@ -1,6 +1,3 @@
--- following options are the default
--- each of these are documented in `:help nvim-tree.OPTION_NAME`
-
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
   return
@@ -88,6 +85,9 @@ nvim_tree.setup {
   renderer = {
     highlight_git = true,
     root_folder_modifier = ":t",
+    indent_markers = {
+        enable = true
+    },
     icons = {
       show = {
         git = true,
