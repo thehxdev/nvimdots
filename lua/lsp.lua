@@ -1,5 +1,8 @@
 local lspconfig = require('lspconfig')
 
+-- This line will disable inline diagnostics
+vim.diagnostic.config({virtual_text = false})
+
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', 'gl', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', 'gL', vim.diagnostic.setloclist, opts)
@@ -48,25 +51,25 @@ lspconfig.ccls.setup {
 lspconfig.jsonls.setup{}
 
 -- haskell
--- lspconfig.hls.setup{
---     filetypes = { 'haskell', 'lhaskell', 'cabal' },
--- }
+--lspconfig.hls.setup{
+--    filetypes = { 'haskell', 'lhaskell', 'cabal' },
+--}
 
 -- zig
--- require'lspconfig'.zls.setup{}
+--require'lspconfig'.zls.setup{}
 
 -- javascript / typescript
--- lspconfig.tsserver.setup {
---     on_attach = on_attach,
---     flags = lsp_flags,
--- }
+--lspconfig.tsserver.setup {
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+--}
 
 -- rust
--- lspconfig.rust_analyzer.setup {
---     on_attach = on_attach,
---     flags = lsp_flags,
---     settings = {
---         ["rust-analyzer"] = {}
---     }
--- }
+--lspconfig.rust_analyzer.setup {
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+--    settings = {
+--        ["rust-analyzer"] = {}
+--    }
+--}
 
