@@ -73,3 +73,11 @@ lspconfig.jsonls.setup{}
 --    }
 --}
 
+-- java
+-- to use jdtls, install it first
+-- https://github.com/eclipse/eclipse.jdt.ls#installation
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jdtls
+--lspconfig.jdtls.setup{
+--    cmd = { '/home/hx/.local/jdt/bin/jdtls' },
+--    filetypes = { 'java' },
+--}

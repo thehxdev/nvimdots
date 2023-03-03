@@ -42,6 +42,9 @@ return require('packer').startup(function(use)
     use "williamboman/mason.nvim"
     use 'williamboman/mason-lspconfig.nvim'
 
+    -- Java
+    use 'mfussenegger/nvim-jdtls'
+
     -- Scala LSP
     --use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
 

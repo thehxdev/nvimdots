@@ -14,9 +14,9 @@ lua require('telescope')
 lua require('treesitter')
 lua require('masoncfg')
 lua require('lsp')
-lua require('set')
 lua require('cmplsp')
 lua require('gitsigns')
+lua require('set')
 "lua require('bufferline')
 
 " Uncomment these lines if you want LSP support for Scala language.
