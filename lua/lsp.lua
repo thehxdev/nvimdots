@@ -1,7 +1,7 @@
 local lspconfig = require('lspconfig')
 
 -- This line will disable inline diagnostics
-vim.diagnostic.config({virtual_text = false})
+-- vim.diagnostic.config({virtual_text = false})
 
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', 'gl', vim.diagnostic.open_float, opts)
@@ -56,7 +56,7 @@ lspconfig.jsonls.setup{}
 --}
 
 -- zig
---require'lspconfig'.zls.setup{}
+--lspconfig.zls.setup{}
 
 -- javascript / typescript
 --lspconfig.tsserver.setup {
@@ -77,7 +77,10 @@ lspconfig.jsonls.setup{}
 -- to use jdtls, install it first
 -- https://github.com/eclipse/eclipse.jdt.ls#installation
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jdtls
---lspconfig.jdtls.setup{
---    cmd = { '/home/hx/.local/jdt/bin/jdtls' },
---    filetypes = { 'java' },
---}
+--
+-- Point `-data` to parent directory of your java projects and put /workspace in front of it.
+lspconfig.jdtls.setup{
+    cmd = { '/home/hx/.local/jdt/bin/jdtls', '-data', '/home/hx/projects/java/workspace' },
+    filetypes = { 'java' },
+}
+
