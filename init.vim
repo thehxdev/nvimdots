@@ -19,16 +19,10 @@ lua require('gitsigns')
 lua require('set')
 "lua require('bufferline')
 
-" Uncomment these lines if you want LSP support for Scala language.
-" Make sure that you installed nvim-metals already with packer.
-"""
-"lua<<EOF
-"vim.cmd([[autocmd FileType scala,sbt lua require("metals").initialize_or_attach({})]])
-"EOF
-
 " ============================================== "
 let g:pymode_indent = 1
 
+" space key as leader key
 let mapleader = " "
 
 nnoremap <C-h> <C-w>h
@@ -39,7 +33,7 @@ noremap <S-m> :bdelete<CR>
 noremap <S-h> :bprevious<CR>
 noremap <S-l> :bnext<CR>
 noremap <S-j> :<CR>
-noremap <S-k> :<CR>
+"noremap <S-k> :<CR>
 noremap <leader>e :NvimTreeToggle<CR>
 noremap <leader>t :terminal<CR>
 
