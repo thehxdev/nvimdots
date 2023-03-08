@@ -29,6 +29,7 @@ NEOVIM_OLD_CONFIGS_BACKUP_DIR="${HOME}/nvimbak/"
 OK="${Green}[OK]"
 ERROR="${Red}[ERROR]"
 INFO="${Yellow}[INFO]"
+SLEEP="sleep 0.5"
 
 source "/etc/os-release"
 
