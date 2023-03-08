@@ -5,19 +5,20 @@ endif
 
 " ============================================== "
 
-lua require('colorsettings')
+lua require('tokyonightsettings')
 lua require('colors')
 lua require('plugins')
+lua require('gitsignsconf')
 lua require('whichkey')
 lua require('nvimtree')
 lua require('telescope')
 lua require('treesitter')
 lua require('masoncfg')
-lua require('lsp')
+lua require('lspconf')
 lua require('cmplsp')
-lua require('gitsigns')
+lua require('autopairs')
 lua require('set')
-"lua require('bufferline')
+lua require('bufferlineconf')
 
 " ============================================== "
 let g:pymode_indent = 1

@@ -42,12 +42,6 @@ return require('packer').startup(function(use)
     use "williamboman/mason.nvim"
     use 'williamboman/mason-lspconfig.nvim'
 
-    -- Java
-    use 'mfussenegger/nvim-jdtls'
-
-    -- Scala LSP
-    --use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
-
     -- Purescript support for neovim
     --use 'purescript-contrib/purescript-vim'
 
@@ -65,14 +59,14 @@ return require('packer').startup(function(use)
     }
 
     -- Colors
-    use 'ayu-theme/ayu-vim'
-    use 'morhetz/gruvbox'
-    use 'EdenEast/nightfox.nvim'
+    use "savq/melange-nvim"
+    use { "ellisonleao/gruvbox.nvim" }
     use 'folke/tokyonight.nvim'
+    use 'loctvl842/monokai-pro.nvim'
     use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Indent indicator
-    use 'Yggdroot/indentLine'
+    --use 'Yggdroot/indentLine'
     --use "lukas-reineke/indent-blankline.nvim"
 
     -- Telescope
@@ -88,7 +82,7 @@ return require('packer').startup(function(use)
     use 'jiangmiao/auto-pairs'
     use 'tpope/vim-fugitive'
     use 'nvim-lua/plenary.nvim'
-    use 'lewis6991/gitsigns.nvim'
     use 'folke/which-key.nvim'
+    use { 'lewis6991/gitsigns.nvim' }
 
 end)
