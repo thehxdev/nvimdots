@@ -1,9 +1,8 @@
 local lspconfig = require('lspconfig')
 
--- This line will disable inline diagnostics
--- vim.diagnostic.config({virtual_text = false})
 vim.diagnostic.config{
-  float={border="rounded"}
+  float={border="rounded"},
+  virtual_text=false -- This line will disable inline diagnostics
 }
 
 local handlers =  {
@@ -20,7 +19,9 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set("n", "K", require("hover").hover, {desc = "hover.nvim"})
+    vim.keymap.set("n", "gK", require("hover").hover_select, {desc = "hover.nvim (select)"})
+    -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
 end
 
 
@@ -73,12 +74,12 @@ lspconfig.jsonls.setup{
 }
 
 -- haskell
---lspconfig.hls.setup{
---    handlers = handlers,
---    on_attach = on_attach,
---    flags = lsp_flags,
---    filetypes = { 'haskell', 'lhaskell', 'cabal' },
---}
+lspconfig.hls.setup{
+    handlers = handlers,
+    on_attach = on_attach,
+    flags = lsp_flags,
+    filetypes = { 'haskell', 'lhaskell', 'cabal' },
+}
 
 -- zig
 --lspconfig.zls.setup{
@@ -126,3 +127,12 @@ lspconfig.jdtls.setup{
 --    flags = lsp_flags,
 --    cmd = { "/home/hx/.local/share/coursier/bin/metals" },
 --}
+
+-- nix
+lspconfig.rnix.setup{
+    cmd = { '/home/hx/.cargo/bin/rnix-lsp' },
+    filetypes = { 'nix' },
+    on_attach=on_attach,
+    flags=lsp_flags,
+    handlers=handlers,
+}

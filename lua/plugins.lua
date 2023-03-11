@@ -45,6 +45,9 @@ return require('packer').startup(function(use)
     -- Purescript support for neovim
     --use 'purescript-contrib/purescript-vim'
 
+    -- hover
+    use { "lewis6991/hover.nvim" }
+
     -- Icons
     use 'ryanoasis/vim-devicons'
     use 'nvim-tree/nvim-web-devicons'
