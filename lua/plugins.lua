@@ -43,10 +43,10 @@ return require('packer').startup(function(use)
     use 'williamboman/mason-lspconfig.nvim'
 
     -- Purescript support for neovim
-    --use 'purescript-contrib/purescript-vim'
+    use 'purescript-contrib/purescript-vim'
 
     -- hover
-    use { "lewis6991/hover.nvim" }
+    --use { "lewis6991/hover.nvim" }
 
     -- Icons
     use 'ryanoasis/vim-devicons'
@@ -62,7 +62,6 @@ return require('packer').startup(function(use)
     }
 
     -- Colors
-    use "savq/melange-nvim"
     use { "ellisonleao/gruvbox.nvim" }
     use 'folke/tokyonight.nvim'
     use 'loctvl842/monokai-pro.nvim'
