@@ -62,9 +62,7 @@ return require('packer').startup(function(use)
     }
 
     -- Colors
-    use { "ellisonleao/gruvbox.nvim" }
     use 'folke/tokyonight.nvim'
-    use 'loctvl842/monokai-pro.nvim'
     use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Indent indicator
