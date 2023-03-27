@@ -20,8 +20,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set("n", "K", require("hover").hover, {desc = "hover.nvim"})
-    vim.keymap.set("n", "gK", require("hover").hover_select, {desc = "hover.nvim (select)"})
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
 end
 
@@ -44,44 +42,44 @@ local lsp_flags = {
 
 -- pylsp
 lspconfig.pylsp.setup{
-    cmd = { "/home/hx/.local/bin/pylsp" },
-    handlers = handlers,
-    on_attach = on_attach,
-    flags = lsp_flags,
+    cmd = { "pylsp" },
     settings = {
         pylsp = {
             plugins = {
                 pycodestyle = {
                     enabled = false
-                }
-            }
-        }
+                },
+            },
+        },
     },
+    handlers = handlers,
+    on_attach = on_attach,
+    flags = lsp_flags,
     capabilities = capabilities,
 }
 
 -- ruff (python linter)
 lspconfig.ruff_lsp.setup{
-    cmd = { "/home/hx/.local/bin/ruff-lsp" },
-    handlers = handlers,
-    on_attach = on_attach,
-    flags = lsp_flags,
+    cmd = { "ruff-lsp" },
     init_options = {
         settings = {
             -- Any extra CLI arguments for `ruff` go here.
             args = {},
-        }
+        },
     },
-    capabilities = capabilities,
-}
-
--- bash
-lspconfig.bashls.setup{
     handlers = handlers,
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,
 }
+
+-- bash
+--lspconfig.bashls.setup{
+--    handlers = handlers,
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+--    capabilities = capabilities,
+--}
 
 -- lua
 lspconfig.lua_ls.setup {
@@ -96,12 +94,12 @@ lspconfig.lua_ls.setup {
 --    handlers = handlers,
 --    on_attach = on_attach,
 --    flags = lsp_flags,
+--    capabilities = capabilities,
 --    init_options = {
 --        cache = {
 --            directory = ".ccls-cache";
 --        };
 --    },
---    capabilities = capabilities,
 --}
 
 -- json
@@ -117,8 +115,8 @@ lspconfig.jsonls.setup{
 --    handlers = handlers,
 --    on_attach = on_attach,
 --    flags = lsp_flags,
---    filetypes = { 'haskell', 'lhaskell', 'cabal' },
 --    capabilities = capabilities,
+--    filetypes = { 'haskell', 'lhaskell', 'cabal' },
 --}
 
 
@@ -127,7 +125,7 @@ lspconfig.jsonls.setup{
 --    cmd = {
 --        "rustup", "run", "stable", "rust-analyzer"
 --    },
---    handlers=handlers,
+--    handlers = handlers,
 --    on_attach = on_attach,
 --    flags = lsp_flags,
 --    capabilities = capabilities,
@@ -143,7 +141,7 @@ lspconfig.jsonls.setup{
 
 -- javascript / typescript
 --lspconfig.tsserver.setup {
---    handlers=handlers,
+--    handlers = handlers,
 --    on_attach = on_attach,
 --    flags = lsp_flags,
 --    capabilities = capabilities,
@@ -156,10 +154,10 @@ lspconfig.jsonls.setup{
 --lspconfig.jdtls.setup{
 --    -- NOTE: Point `-data` to parent directory of your java projects and put /workspace in front of it.
 --    cmd = { '/home/hx/.local/jdtls/bin/jdtls', '-data', '/home/hx/projects/java/workspace' },
---    on_attach=on_attach,
---    flags=lsp_flags,
---    handlers=handlers,
 --    filetypes = { 'java' },
+--    handlers = handlers,
+--    on_attach = on_attach,
+--    flags = lsp_flags,
 --    capabilities = capabilities,
 --}
 
@@ -168,10 +166,10 @@ lspconfig.jsonls.setup{
 -- Install `metals` language server.
 -- ./coursier install metals
 --require'lspconfig'.metals.setup{
+--    cmd = { "/home/hx/.local/share/coursier/bin/metals" },
 --    handlers = handlers,
 --    on_attach = on_attach,
 --    flags = lsp_flags,
---    cmd = { "/home/hx/.local/share/coursier/bin/metals" },
 --    capabilities = capabilities,
 --}
 
@@ -179,19 +177,19 @@ lspconfig.jsonls.setup{
 --lspconfig.rnix.setup{
 --    cmd = { '/home/hx/.cargo/bin/rnix-lsp' },
 --    filetypes = { 'nix' },
---    on_attach=on_attach,
---    flags=lsp_flags,
---    handlers=handlers,
+--    handlers = handlers,
+--    on_attach = on_attach,
+--    flags = lsp_flags,
 --    capabilities = capabilities,
 --}
 
 
 -- ocaml
 --lspconfig.ocamllsp.setup{
+--    cmd = { "/home/hx/.opam/default/bin/ocamllsp" }
 --    handlers = handlers,
 --    on_attach = on_attach,
 --    flags = lsp_flags,
---    cmd = { "/home/hx/.opam/default/bin/ocamllsp" }
 --    capabilities = capabilities,
 --}
 
