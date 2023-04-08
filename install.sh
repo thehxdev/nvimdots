@@ -144,6 +144,8 @@ function install_nvimdots() {
 
     git clone --depth 1  ${NVIMDOTS_GIT_REPO} ${NVIM_CONFIG_INSTALL_DIR}
     judge "Install nvimdots"
+
+    nvim --headless +PackerSync +qa
 }
 
 
