@@ -153,7 +153,7 @@ lspconfig.jsonls.setup{
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jdtls
 --lspconfig.jdtls.setup{
 --    -- NOTE: Point `-data` to parent directory of your java projects and put /workspace in front of it.
---    cmd = { '/home/hx/.local/jdtls/bin/jdtls', '-data', '/home/hx/projects/java/workspace' },
+--    cmd = { '~/.local/jdtls/bin/jdtls', '-data', '~/projects/java/workspace' },
 --    filetypes = { 'java' },
 --    handlers = handlers,
 --    on_attach = on_attach,
@@ -183,7 +183,6 @@ lspconfig.jsonls.setup{
 --    capabilities = capabilities,
 --}
 
-
 -- ocaml
 --lspconfig.ocamllsp.setup{
 --    cmd = { "/home/hx/.opam/default/bin/ocamllsp" }
@@ -211,6 +210,15 @@ lspconfig.jsonls.setup{
 
 -- racket
 --lspconfig.racket_langserver.setup{
+--    handlers = handlers,
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+--    capabilities = capabilities,
+--}
+
+-- elixir
+--lspconfig.elixirls.setup{
+--    cmd = { "~/.local/elixir-ls/language_server.sh" },
 --    handlers = handlers,
 --    on_attach = on_attach,
 --    flags = lsp_flags,

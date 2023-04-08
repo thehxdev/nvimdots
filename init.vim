@@ -16,7 +16,6 @@ lua require('treesitter')
 lua require('masoncfg')
 lua require('lspconf')
 lua require('cmplsp')
-lua require('autopairs')
 lua require('set')
 lua require('bufferlineconf')
 
