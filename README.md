@@ -8,3 +8,4 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 mv $HOME/.config/nvim $HOME/nvim_backup
 git clone --depth 1 https://github.com/hxdevlover/nvimdots.git $HOME/.config/nvim
 ```
+

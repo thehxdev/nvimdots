@@ -36,6 +36,8 @@ noremap <S-j> :<CR>
 "noremap <S-k> :<CR>
 noremap <leader>e :NvimTreeToggle<CR>
 noremap <leader>t :terminal<CR>
+noremap <leader>ll :LspInfo<CR>
+noremap <leader>lr :LspRestart<CR>
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -71,5 +73,4 @@ set statusline+=\ row:\ %l\ col:\ %c\ percent:\ %p%%
 
 " Show the status on the second to last line.
 set laststatus=2
-
 

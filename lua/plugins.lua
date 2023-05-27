@@ -55,7 +55,6 @@ return require('packer').startup(function(use)
     use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 
     -- Others
-    use 'jiangmiao/auto-pairs'
     use 'tpope/vim-fugitive'
     use 'nvim-lua/plenary.nvim'
     use 'folke/which-key.nvim'

@@ -41,40 +41,40 @@ local lsp_flags = {
 --}
 
 -- pylsp
-lspconfig.pylsp.setup{
-    cmd = { "pylsp" },
-    settings = {
-        pylsp = {
-            plugins = {
-                pycodestyle = {
-                    enabled = false
-                },
-            },
-        },
-    },
-    handlers = handlers,
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
-}
+--lspconfig.pylsp.setup {
+--    cmd = { "pylsp" },
+--    settings = {
+--        pylsp = {
+--            plugins = {
+--                pycodestyle = {
+--                    enabled = false
+--                },
+--            },
+--        },
+--    },
+--    handlers = handlers,
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+--    capabilities = capabilities,
+--}
 
 -- ruff (python linter)
-lspconfig.ruff_lsp.setup{
-    cmd = { "ruff-lsp" },
-    init_options = {
-        settings = {
-            -- Any extra CLI arguments for `ruff` go here.
-            args = {},
-        },
-    },
-    handlers = handlers,
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
-}
+--lspconfig.ruff_lsp.setup {
+--    cmd = { "ruff-lsp" },
+--    init_options = {
+--        settings = {
+--            -- Any extra CLI arguments for `ruff` go here.
+--            args = {},
+--        },
+--    },
+--    handlers = handlers,
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+--    capabilities = capabilities,
+--}
 
 -- bash
---lspconfig.bashls.setup{
+--lspconfig.bashls.setup {
 --    handlers = handlers,
 --    on_attach = on_attach,
 --    flags = lsp_flags,
@@ -103,7 +103,7 @@ lspconfig.lua_ls.setup {
 --}
 
 -- json
-lspconfig.jsonls.setup{
+lspconfig.jsonls.setup {
     handlers = handlers,
     on_attach = on_attach,
     flags = lsp_flags,
@@ -111,7 +111,7 @@ lspconfig.jsonls.setup{
 }
 
 -- haskell
---lspconfig.hls.setup{
+--lspconfig.hls.setup {
 --    handlers = handlers,
 --    on_attach = on_attach,
 --    flags = lsp_flags,
@@ -153,7 +153,7 @@ lspconfig.jsonls.setup{
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jdtls
 --lspconfig.jdtls.setup{
 --    -- NOTE: Point `-data` to parent directory of your java projects and put /workspace in front of it.
---    cmd = { '~/.local/jdtls/bin/jdtls', '-data', '~/projects/java/workspace' },
+--    cmd = { '/home/hx/.local/jdtls/bin/jdtls', '-data', '/home/hx/projects/java/workspace' },
 --    filetypes = { 'java' },
 --    handlers = handlers,
 --    on_attach = on_attach,
@@ -182,6 +182,7 @@ lspconfig.jsonls.setup{
 --    flags = lsp_flags,
 --    capabilities = capabilities,
 --}
+
 
 -- ocaml
 --lspconfig.ocamllsp.setup{
@@ -218,9 +219,10 @@ lspconfig.jsonls.setup{
 
 -- elixir
 --lspconfig.elixirls.setup{
---    cmd = { "~/.local/elixir-ls/language_server.sh" },
+--    cmd = { "/home/hx/.local/elixir-ls/language_server.sh" },
 --    handlers = handlers,
 --    on_attach = on_attach,
 --    flags = lsp_flags,
 --    capabilities = capabilities,
 --}
+
