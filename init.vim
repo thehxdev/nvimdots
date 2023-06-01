@@ -5,7 +5,9 @@ endif
 
 " ============================================== "
 
-lua require('tokyonightsettings')
+"lua require('themes/tokyonight_theme')
+"lua require('themes/onedark_theme')
+lua require('themes/vscode_theme')
 lua require('colors')
 lua require('plugins')
 lua require('gitsignsconf')
@@ -38,6 +40,9 @@ noremap <leader>e :NvimTreeToggle<CR>
 noremap <leader>t :terminal<CR>
 noremap <leader>ll :LspInfo<CR>
 noremap <leader>lr :LspRestart<CR>
+
+noremap <leader>hd :%!xxd -g 1<CR>
+noremap <leader>hr :%!xxd -r<CR>
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
