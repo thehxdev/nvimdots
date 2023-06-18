@@ -5,9 +5,9 @@ endif
 
 " ============================================== "
 
-"lua require('themes/tokyonight_theme')
+lua require('themes/tokyonight_theme')
 "lua require('themes/onedark_theme')
-lua require('themes/vscode_theme')
+"lua require('themes/vscode_theme')
 lua require('colors')
 lua require('plugins')
 lua require('gitsignsconf')
@@ -79,3 +79,5 @@ set statusline+=\ row:\ %l\ col:\ %c\ percent:\ %p%%
 " Show the status on the second to last line.
 set laststatus=2
 
+"hi NonText guibg=NONE ctermbg=none
+"hi Normal guibg=NONE ctermbg=NONE

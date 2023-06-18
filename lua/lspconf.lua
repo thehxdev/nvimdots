@@ -41,37 +41,37 @@ local lsp_flags = {
 --}
 
 -- pylsp
---lspconfig.pylsp.setup {
---    cmd = { "pylsp" },
---    settings = {
---        pylsp = {
---            plugins = {
---                pycodestyle = {
---                    enabled = false
---                },
---            },
---        },
---    },
---    handlers = handlers,
---    on_attach = on_attach,
---    flags = lsp_flags,
---    capabilities = capabilities,
---}
+lspconfig.pylsp.setup {
+    cmd = { "pylsp" },
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = {
+                    enabled = false
+                },
+            },
+        },
+    },
+    handlers = handlers,
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+}
 
 -- ruff (python linter)
---lspconfig.ruff_lsp.setup {
---    cmd = { "ruff-lsp" },
---    init_options = {
---        settings = {
---            -- Any extra CLI arguments for `ruff` go here.
---            args = {},
---        },
---    },
---    handlers = handlers,
---    on_attach = on_attach,
---    flags = lsp_flags,
---    capabilities = capabilities,
---}
+lspconfig.ruff_lsp.setup {
+    cmd = { "ruff-lsp" },
+    init_options = {
+        settings = {
+            -- Any extra CLI arguments for `ruff` go here.
+            args = {},
+        },
+    },
+    handlers = handlers,
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+}
 
 -- bash
 --lspconfig.bashls.setup {
