@@ -1,7 +1,9 @@
-local status_ok, tokyonight = pcall(require, "tokyonight")
-if not status_ok then
-  return
-end
+-- local status_ok, tokyonight = pcall(require, "tokyonight")
+-- if not status_ok then
+--   return
+-- end
+
+tokyonight = require("tokyonight")
 
 tokyonight.setup({
     -- your configuration comes here

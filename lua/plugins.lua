@@ -1,93 +1,93 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+local lazy = require("lazy")
+-- local status_ok, lazy = pcall(require, "lazy")
+-- if not status_ok then
+--     return
+-- end
 
-    -- LSP
-    -- use {'neoclide/coc.nvim', branch = 'release'}
-    -- use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
-    -- use {
-    --     'VonHeikemen/lsp-zero.nvim',
-    --     requires = {
-    --         -- LSP Support
-    --         {'neovim/nvim-lspconfig'},
-    --         {'williamboman/mason.nvim'},
-    --         {'williamboman/mason-lspconfig.nvim'},
-
-    --         -- Autocompletion
-    --         {'hrsh7th/nvim-cmp'},
-    --         {'hrsh7th/cmp-buffer'},
-    --         {'hrsh7th/cmp-path'},
-    --         {'saadparwaiz1/cmp_luasnip'},
-    --         {'hrsh7th/cmp-nvim-lsp'},
-    --         {'hrsh7th/cmp-nvim-lua'},
-
-    --         -- Snippets
-    --         {'L3MON4D3/LuaSnip'},
-    --         {'rafamadriz/friendly-snippets'},
-    --     }
-    -- }
-
-    use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
-    use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-    use 'hrsh7th/cmp-buffer' -- Autocompletion from buffers
-    use 'hrsh7th/cmp-path' -- Autocompletion from path
-    use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-    use 'L3MON4D3/LuaSnip' -- Snippets plugin
-    use "williamboman/mason.nvim"
-    use 'williamboman/mason-lspconfig.nvim'
-
-    -- Purescript support for neovim
-    --use 'purescript-contrib/purescript-vim'
-
-    -- hover
-    --use { "lewis6991/hover.nvim" }
-
-    -- Icons
-    use 'ryanoasis/vim-devicons'
-    use 'nvim-tree/nvim-web-devicons'
-
-    -- NvimTree
-    use 'nvim-tree/nvim-tree.lua'
-
-    -- Tree-sitter
-    use {
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
+lazy.setup({
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
+    "nvim-telescope/telescope.nvim", branch = "0.1.x",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    lazy = false,
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
     }
+  },
+  {
+    "folke/which-key.nvim",
+    lazy = true,
+    opts = {},
+  },
+  {
+    "neovim/nvim-lspconfig",
+    lazy = false,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    lazy = false,
+  },
+  {"hrsh7th/cmp-buffer", lazy = false},
+  {"hrsh7th/cmp-path", lazy = false},
+  {"hrsh7th/cmp-nvim-lsp", lazy = false},
+  {
+      "L3MON4D3/LuaSnip",
+      -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+      version = "2.*",
+      lazy = false,
+  },
+  {"saadparwaiz1/cmp_luasnip", lazy = false},
+  {"ryanoasis/vim-devicons", lazy = false},
+  {"nvim-tree/nvim-web-devicons", lazy = false},
+  {
+      "akinsho/bufferline.nvim",
+      lazy = false,
+      version = "*",
+      dependencies = {"nvim-tree/nvim-web-devicons"},
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function ()
+      local configs = require("nvim-treesitter.configs")
 
-    -- Colors
-    use 'folke/tokyonight.nvim'
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use 'navarasu/onedark.nvim'
-    use 'Mofiqul/vscode.nvim'
-
-    -- Indent indicator
-    --use 'Yggdroot/indentLine'
-    --use "lukas-reineke/indent-blankline.nvim"
-
-    -- Telescope
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-
-    -- Bufferline
-    use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
-
-    -- Others
-    use 'tpope/vim-fugitive'
-    use 'nvim-lua/plenary.nvim'
-    use 'folke/which-key.nvim'
-    use { 'lewis6991/gitsigns.nvim' }
-    use {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    }
-
-end)
+      configs.setup({
+          ensure_installed = { "c", "vim", "json" },
+          sync_install = false,
+          highlight = { enable = true, additional_vim_regex_highlighting = true, disable = { "lua" }},
+          indent = { enable = true, disable = { "python" } },
+          rainbow = { enable = true, max_file_lines = nil },
+        })
+    end
+  },
+  {
+      'windwp/nvim-autopairs',
+      event = "InsertEnter",
+      opts = {} -- this is equalent to setup({}) function
+  }
+})

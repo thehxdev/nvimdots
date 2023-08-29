@@ -1,5 +1,5 @@
 -- luasnip setup
-local luasnip = require 'luasnip'
+local luasnip = require("luasnip")
 
 -- Icons
 local kind_icons = {
