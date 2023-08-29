@@ -4,30 +4,30 @@ local luasnip = require("luasnip")
 -- Icons
 local kind_icons = {
     Text = "",
-    Method = "",
-    Function = "",
+    Method = "",
+    Function = "󰊕",
     Constructor = "",
-    Field = "",
-    Variable = "",
-    Class = "ﴯ",
+    Field = "",
+    Variable = "󰫧",
+    Class = "",
     Interface = "",
     Module = "",
-    Property = "ﰠ",
+    Property = "",
     Unit = "",
     Value = "",
     Enum = "",
-    Keyword = "",
+    Keyword = "󰌆",
     Snippet = "",
-    Color = "",
-    File = "",
+    Color = "",
+    File = "",
     Reference = "",
-    Folder = "",
+    Folder = "",
     EnumMember = "",
-    Constant = "",
+    Constant = "",
     Struct = "",
     Event = "",
-    Operator = "",
-    TypeParameter = ""
+    Operator = "",
+    TypeParameter = ""
 }
 
 -- nvim-cmp setup

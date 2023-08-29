@@ -1,3 +1,4 @@
+-- NeoTree
 -- If you want icons for diagnostic errors, you'll need to define them somewhere:
 vim.fn.sign_define("DiagnosticSignError",
   {text = " ", texthl = "DiagnosticSignError"})
@@ -46,7 +47,7 @@ neo_tree.setup({
     icon = {
       folder_closed = "",
       folder_open = "",
-      folder_empty = "󰜌",
+      folder_empty = "",
       -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
       -- then these will never be used.
       default = "*",
@@ -64,12 +65,12 @@ neo_tree.setup({
     git_status = {
       symbols = {
         -- Change type
-        added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-        modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-        deleted   = "✖",-- this can only be used in the git_status source
+        added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+        modified  = "󰏫", -- or "", but this is redundant info if you use git_status_colors on the name
+        deleted   = "",-- this can only be used in the git_status source
         renamed   = "󰁕",-- this can only be used in the git_status source
         -- Status type
-        untracked = "",
+        untracked = "󰡯",
         ignored   = "",
         unstaged  = "󰄱",
         staged    = "",
@@ -128,11 +129,11 @@ neo_tree.setup({
       -- ["t"] = "open_tab_drop",
       ["w"] = "open_with_window_picker",
       --["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
-      ["C"] = "close_node",
+      ["h"] = "close_node",
       -- ['C'] = 'close_all_subnodes',
       ["z"] = "close_all_nodes",
       --["Z"] = "expand_all_nodes",
-      ["a"] = { 
+      ["a"] = {
         "add",
         -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
         -- some commands may take optional config options, see `:h neo-tree-mappings` for details
