@@ -1,7 +1,8 @@
+-- Tree-Sitter
 local configs = require("nvim-treesitter.configs")
 
 configs.setup {
-    ensure_installed = {"python", "lua", "json", "c", "help", "vim", "nix"},
+    ensure_installed = {"lua", "json", "c", "vim"},
     sync_install = false,
     ignore_install = { "" }, -- List of parsers to ignore installing
     highlight = {

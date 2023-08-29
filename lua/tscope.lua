@@ -94,3 +94,10 @@ telescope.setup {
         -- please take a look at the readme of the extension you want to configure
     },
 }
+
+-- Telescope keymaps
+local telescope_blt = require('telescope.builtin')
+vim.keymap.set('n', '<leader>.', telescope_blt.find_files, {})
+vim.keymap.set('n', '<leader>fg', telescope_blt.live_grep, {})
+vim.keymap.set('n', '<leader>fb', telescope_blt.buffers, {})
+vim.keymap.set('n', '<leader>fc', telescope_blt.colorscheme, {})

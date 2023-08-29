@@ -41,37 +41,37 @@ local lsp_flags = {
 --}
 
 -- pylsp
-lspconfig.pylsp.setup {
-    cmd = { "pylsp" },
-    settings = {
-        pylsp = {
-            plugins = {
-                pycodestyle = {
-                    enabled = false
-                },
-            },
-        },
-    },
-    handlers = handlers,
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
-}
+--lspconfig.pylsp.setup {
+--    cmd = { "pylsp" },
+--    settings = {
+--        pylsp = {
+--            plugins = {
+--                pycodestyle = {
+--                    enabled = false
+--                },
+--            },
+--        },
+--    },
+--    handlers = handlers,
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+--    capabilities = capabilities,
+--}
 
 -- ruff (python linter)
-lspconfig.ruff_lsp.setup {
-    cmd = { "ruff-lsp" },
-    init_options = {
-        settings = {
-            -- Any extra CLI arguments for `ruff` go here.
-            args = {},
-        },
-    },
-    handlers = handlers,
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
-}
+--lspconfig.ruff_lsp.setup {
+--    cmd = { "ruff-lsp" },
+--    init_options = {
+--        settings = {
+--            -- Any extra CLI arguments for `ruff` go here.
+--            args = {},
+--        },
+--    },
+--    handlers = handlers,
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+--    capabilities = capabilities,
+--}
 
 -- bash
 --lspconfig.bashls.setup {
@@ -82,12 +82,12 @@ lspconfig.ruff_lsp.setup {
 --}
 
 -- lua
-lspconfig.lua_ls.setup {
-    handlers = handlers,
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
-}
+--lspconfig.lua_ls.setup {
+--    handlers = handlers,
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+--    capabilities = capabilities,
+--}
 
 -- C / C++ / Obj-C
 --lspconfig.ccls.setup {
@@ -103,12 +103,12 @@ lspconfig.lua_ls.setup {
 --}
 
 -- json
-lspconfig.jsonls.setup {
-    handlers = handlers,
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
-}
+--lspconfig.jsonls.setup {
+--    handlers = handlers,
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+--    capabilities = capabilities,
+--}
 
 -- haskell
 --lspconfig.hls.setup {
