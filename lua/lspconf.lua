@@ -2,13 +2,13 @@ local lspconfig = require('lspconfig')
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 vim.diagnostic.config{
-  float={border="rounded"},
-  virtual_text=false -- This line will disable inline diagnostics
+    float={border="rounded"},
+    virtual_text=false -- This line will disable inline diagnostics
 }
 
 local handlers =  {
-  ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = "rounded"}),
-  ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = "rounded" }),
+    ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = "rounded"}),
+    ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = "rounded" }),
 }
 
 local opts = { noremap=true, silent=true }
@@ -74,62 +74,62 @@ local lsp_flags = {
 -- }
 
 -- bash
---lspconfig.bashls.setup {
---    handlers = handlers,
---    on_attach = on_attach,
---    flags = lsp_flags,
---    capabilities = capabilities,
---}
+-- lspconfig.bashls.setup {
+--     handlers = handlers,
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     capabilities = capabilities,
+-- }
 
 -- lua
---lspconfig.lua_ls.setup {
---    handlers = handlers,
---    on_attach = on_attach,
---    flags = lsp_flags,
---    capabilities = capabilities,
---}
+-- lspconfig.lua_ls.setup {
+--     handlers = handlers,
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     capabilities = capabilities,
+-- }
 
 -- C / C++ / Obj-C
---lspconfig.ccls.setup {
---    handlers = handlers,
---    on_attach = on_attach,
---    flags = lsp_flags,
---    capabilities = capabilities,
---    init_options = {
---        cache = {
---            directory = ".ccls-cache";
---        };
---    },
---}
+-- lspconfig.ccls.setup {
+--     handlers = handlers,
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     capabilities = capabilities,
+--     init_options = {
+--         cache = {
+--             directory = ".ccls-cache";
+--         };
+--     },
+-- }
 
 -- json
---lspconfig.jsonls.setup {
---    handlers = handlers,
---    on_attach = on_attach,
---    flags = lsp_flags,
---    capabilities = capabilities,
---}
+-- lspconfig.jsonls.setup {
+--     handlers = handlers,
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     capabilities = capabilities,
+-- }
 
 -- haskell
---lspconfig.hls.setup {
---    handlers = handlers,
---    on_attach = on_attach,
---    flags = lsp_flags,
---    capabilities = capabilities,
---    filetypes = { 'haskell', 'lhaskell', 'cabal' },
---}
+-- lspconfig.hls.setup {
+--     handlers = handlers,
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     capabilities = capabilities,
+--     filetypes = { 'haskell', 'lhaskell', 'cabal' },
+-- }
 
 
 -- rust
---lspconfig.rust_analyzer.setup {
---    cmd = {
---        "rustup", "run", "nightly", "rust-analyzer"
---    },
---    handlers = handlers,
---    on_attach = on_attach,
---    flags = lsp_flags,
---    capabilities = capabilities,
---}
+-- lspconfig.rust_analyzer.setup {
+--     cmd = {
+--         "rustup", "run", "nightly", "rust-analyzer"
+--     },
+--     handlers = handlers,
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     capabilities = capabilities,
+-- }
 
 -- zig
 --lspconfig.zls.setup{
@@ -194,12 +194,12 @@ local lsp_flags = {
 --}
 
 -- go
---lspconfig.gopls.setup{
---    handlers = handlers,
---    on_attach = on_attach,
---    flags = lsp_flags,
---    capabilities = capabilities,
---}
+-- lspconfig.gopls.setup{
+--     handlers = handlers,
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     capabilities = capabilities,
+-- }
 
 -- purescript
 --lspconfig.purescriptls.setup{
