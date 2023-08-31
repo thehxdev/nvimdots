@@ -67,8 +67,8 @@ neo_tree.setup({
                 -- Change type
                 added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
                 modified  = "󰏫", -- or "", but this is redundant info if you use git_status_colors on the name
-                deleted   = "",-- this can only be used in the git_status source
-                renamed   = "󰁕",-- this can only be used in the git_status source
+                deleted   = "", -- this can only be used in the git_status source
+                renamed   = "󰁕", -- this can only be used in the git_status source
                 -- Status type
                 untracked = "󰡯",
                 ignored   = "",
@@ -91,7 +91,7 @@ neo_tree.setup({
             required_width = 88, -- min width of window required to show this column
         },
         created = {
-            enabled = true,
+            enabled = false,
             required_width = 110, -- min width of window required to show this column
         },
         symlink_target = {
