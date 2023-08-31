@@ -58,7 +58,7 @@ do some manual work.
 
 Keymaps used in this configuration.
 
-** In the tables below you see `LR` key. this referes to `Space` key which is configured
+**In the tables below you see `LR` key. this referes to `Space` key which is configured
 as leader key**
 
 ### Window
