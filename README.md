@@ -46,12 +46,32 @@ do some manual work.
 - Plugin Management with [Lazy.nvim](https://github.com/folke/lazy.nvim)
 - LSP support for every language that Neovim supportes (Manual Setup)
 - LSP Diagnostics report and IDE like features
+    - [Which languages supported by Neovim's LSP?](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
+    - Edit [lspconf.lua](https://github.com/thehxdev/nvimdots/blob/main/lua/lspconf.lua) file and uncomment pre-configured LSPs.
 - Auto completions using [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - Tree-Sitter syntax highliting
 - File navigation with NeoTree (Integrated with Git)
 - Fuzzy finder ([Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim))
 - Complete Git integration with [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - Show help messege with prefixed keymaps with [whichkey](https://github.com/folke/which-key.nvim)
+
+
+## LSP
+
+Neovim LSP Documentation.
+
+### Q&A
+
+- [Which languages supported by Neovim's LSP?](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
+
+### How to configure a programming language's LSP server?
+
+1. First visit [Server Configurations](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md) and install proper LSP server.
+
+2. If you already installed LSP server, open [lspconf.lua](https://github.com/thehxdev/nvimdots/blob/main/lua/lspconf.lua) with Neovim.
+Try to find your programming language and uncomment the code block that configures that language's LSP.
+
+3. If your language or LSP server not found in `lspoconf.lua`. follow guids in [Server Configurations](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md).
 
 
 ## Keymaps
@@ -140,4 +160,6 @@ This keymaps used in auto-completion menu that `CMP` plugin provides.
 | `g + D`     	| Go to declaration                                   	|
 | `g + r`     	| List of refrences                                   	|
 | `Shift + k` 	| Hover (info about term/word under cursor)           	|
+| `LR + x + x`  | Show a list of all diagnostics in a file              |
+| `LR + x + X`  | Show a list of all diagnostics in a project directory |
 
