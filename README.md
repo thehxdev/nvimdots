@@ -48,7 +48,7 @@ do some manual work.
 - LSP Diagnostics report and IDE like features
 - Auto completions using [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - Tree-Sitter syntax highliting
-- File navigation with NeoTree
+- File navigation with NeoTree (Integrated with Git)
 - Fuzzy finder ([Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim))
 - Complete Git integration with [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - Show help messege with prefixed keymaps with [whichkey](https://github.com/folke/which-key.nvim)
@@ -58,8 +58,8 @@ do some manual work.
 
 Keymaps used in this configuration.
 
-**In the tables below you see `LR` key. this referes to `Space` key which is configured
-as leader key**
+**NOTE: In the tables below you see `LR` key. this referes to `Space` key which is configured
+as leader key.**
 
 ### Window
 
