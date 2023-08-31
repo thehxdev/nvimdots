@@ -321,13 +321,16 @@ lazy.setup({
         "williamboman/mason.nvim",
         cmd = "Mason",
         keys = { { "<leader>m", "<cmd>Mason<cr>", desc = "Mason" } },
-        -- build = ":MasonUpdate",
+        build = ":MasonUpdate",
         opts = {
             ensure_installed = {
                 -- "stylua",
                 -- "shfmt",
                 -- "flake8",
             },
+        },
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
         },
         ---@param opts MasonSettings | {ensure_installed: string[]}
         config = function(_, opts)
