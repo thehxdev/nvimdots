@@ -32,6 +32,16 @@ local lsp_flags = {
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -----
 
+
+-- TEMPLATE
+-- lspconfig.LSP_NAME_IN_SERVER_CONFIGURATION.setup {
+--     handlers = handlers,
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     capabilities = capabilities,
+-- }
+
+
 -- pyright
 --lspconfig.pyright.setup {
 --    handlers = handlers,
