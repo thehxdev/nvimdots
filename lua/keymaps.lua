@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.keymap.set
@@ -62,4 +62,4 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- NeoTree
-keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
+-- keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)

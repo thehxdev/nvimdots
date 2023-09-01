@@ -10,7 +10,7 @@ opt.hlsearch       = true                       -- highlight all matches on prev
 opt.ignorecase     = true                       -- ignore case in search patterns
 opt.mouse          = "a"                        -- allow the mouse to be used in neovim
 opt.pumheight      = 10                         -- pop up menu height 
-opt.showmode       = true                       -- we don't need to see things like -- INSERT -- anymore
+opt.showmode       = false                      -- we don't need to see things like -- INSERT -- anymore
 opt.showtabline    = 2                          -- always show tabs
 opt.smartcase      = true                       -- smart case
 opt.smartindent    = true                       -- make indenting smarter again
@@ -33,3 +33,13 @@ opt.signcolumn     = "yes"                      -- always show the sign column, 
 opt.wrap           = false                      -- display lines as one long line
 opt.scrolloff      = 4                          -- is one of my fav
 opt.sidescrolloff  = 8
+
+-- Diagnostics signs
+vim.fn.sign_define("DiagnosticSignError",
+    {text = " ", texthl = "DiagnosticSignError"})
+vim.fn.sign_define("DiagnosticSignWarn",
+    {text = " ", texthl = "DiagnosticSignWarn"})
+vim.fn.sign_define("DiagnosticSignInfo",
+    {text = " ", texthl = "DiagnosticSignInfo"})
+vim.fn.sign_define("DiagnosticSignHint",
+    {text = "󰌵", texthl = "DiagnosticSignHint"})
