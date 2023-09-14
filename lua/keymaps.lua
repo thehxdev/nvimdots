@@ -17,6 +17,13 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<leader>wh", "<C-w>h", opts)
+keymap("n", "<leader>wj", "<C-w>j", opts)
+keymap("n", "<leader>wk", "<C-w>k", opts)
+keymap("n", "<leader>wl", "<C-w>l", opts)
+keymap("n", "<leader>wc", "<C-w>c", opts)
+keymap("n", "<leader>wv", "<C-w>v", opts)
+keymap("n", "<leader>ws", "<C-w>s", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -63,3 +70,7 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- NeoTree
 -- keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
+
+keymap("n", "U", ":redo<cr>", opts)
+keymap("n", "<leader>qq", ":qa<cr>", opts)
+

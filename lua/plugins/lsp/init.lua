@@ -45,12 +45,12 @@ return {
         -- }
 
         -- pyright
-        --lspconfig.pyright.setup {
+        -- lspconfig.pyright.setup {
         --    handlers = handlers,
         --    on_attach = on_attach,
         --    flags = lsp_flags,
         --    capabilities = capabilities,
-        --}
+        -- }
 
         -- pylsp
         -- lspconfig.pylsp.setup {
@@ -72,7 +72,7 @@ return {
 
         -- ruff (python linter)
         -- lspconfig.ruff_lsp.setup {
-        --     cmd = { "ruff-lsp" },
+        --     cmd = { "ruff" },
         --     init_options = {
         --         settings = {
         --             -- Any extra CLI arguments for `ruff` go here.
@@ -86,62 +86,70 @@ return {
         -- }
 
         -- bash
-        lspconfig.bashls.setup {
-            handlers = handlers,
-            on_attach = on_attach,
-            flags = lsp_flags,
-            capabilities = capabilities,
-        }
+        -- lspconfig.bashls.setup {
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
+
+        -- go
+        -- lspconfig.gopls.setup{
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
 
         -- lua
-        lspconfig.lua_ls.setup {
-            handlers = handlers,
-            on_attach = on_attach,
-            flags = lsp_flags,
-            capabilities = capabilities,
-        }
+        -- lspconfig.lua_ls.setup {
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
 
         -- C / C++ / Obj-C
-        lspconfig.ccls.setup {
-            handlers = handlers,
-            on_attach = on_attach,
-            flags = lsp_flags,
-            capabilities = capabilities,
-            init_options = {
-                cache = {
-                    directory = ".ccls-cache";
-                };
-            },
-        }
+        -- lspconfig.ccls.setup {
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        --     init_options = {
+        --         cache = {
+        --             directory = ".ccls-cache";
+        --         };
+        --     },
+        -- }
 
         -- json
-        lspconfig.jsonls.setup {
-            handlers = handlers,
-            on_attach = on_attach,
-            flags = lsp_flags,
-            capabilities = capabilities,
-        }
+        -- lspconfig.jsonls.setup {
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
 
         -- haskell
-        lspconfig.hls.setup {
-            handlers = handlers,
-            on_attach = on_attach,
-            flags = lsp_flags,
-            capabilities = capabilities,
-            filetypes = { 'haskell', 'lhaskell', 'cabal' },
-        }
+        -- lspconfig.hls.setup {
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        --     filetypes = { 'haskell', 'lhaskell', 'cabal' },
+        -- }
 
 
         -- rust
-        lspconfig.rust_analyzer.setup {
-            cmd = {
-                "rustup", "run", "nightly", "rust-analyzer"
-            },
-            handlers = handlers,
-            on_attach = on_attach,
-            flags = lsp_flags,
-            capabilities = capabilities,
-        }
+        -- lspconfig.rust_analyzer.setup {
+        --     cmd = {
+        --         "rustup", "run", "nightly", "rust-analyzer"
+        --     },
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
 
         -- zig
         --lspconfig.zls.setup{
@@ -163,8 +171,9 @@ return {
         -- to use jdtls, install it first
         -- https://github.com/eclipse/eclipse.jdt.ls#installation
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jdtls
+        -- NOTE: Point `-data` to parent directory of your java projects and put /workspace in front of it.
+        --
         --lspconfig.jdtls.setup{
-        --    -- NOTE: Point `-data` to parent directory of your java projects and put /workspace in front of it.
         --    cmd = { '/home/hx/.local/jdtls/bin/jdtls', '-data', '/home/hx/projects/java/workspace' },
         --    filetypes = { 'java' },
         --    handlers = handlers,
@@ -205,13 +214,6 @@ return {
         --    capabilities = capabilities,
         --}
 
-        -- go
-        lspconfig.gopls.setup{
-            handlers = handlers,
-            on_attach = on_attach,
-            flags = lsp_flags,
-            capabilities = capabilities,
-        }
 
         -- purescript
         --lspconfig.purescriptls.setup{
