@@ -1,6 +1,6 @@
 # HxDev Neovim
 
-My Neovim configuration that I use reqularly for programming.
+My Neovim configuration that I use for programming.
 
 
 ## Prerequisites
