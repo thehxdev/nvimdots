@@ -5,14 +5,13 @@ My Neovim configuration that I use reqularly for programming.
 
 ## Prerequisites
 
-- Neovim >= 0.8.0 (version 0.8.0 or newer)
+- Neovim >= 0.9.0 (version 0.9.0 or newer)
 - a Nerd Font ([Nerd Fonts](https://www.nerdfonts.com))
 - a modern terminal emulator like [Alacritty](https://github.com/alacritty/alacritty)(Recommended) or [Kitty](https://sw.kovidgoyal.net/kitty/)
 - `fd` and `ripgrep` programs used for `Telescope.nvim` plugin for fuzzy finding.
 
-NOTE: It's better to setup **TokyoNight** colorscheme for your terminal emulator. Because i'm using TokyoNight colorscheme
-for this configuration.
-
+> [!NOTE]
+> It's better to set your terminal colorscheme same as neovim colorscheme.
 
 ## How to setup
 
@@ -31,7 +30,7 @@ rm -rf ~/.local/share/nvim ~/.config/nvim
 
 2. Clone this configuration
 ```bash
-git clone --depth 1 --branch main https://github.com/thehxdev/nvimdots ~/.config/nvim
+git clone --depth=1 --branch=main https://github.com/thehxdev/nvimdots ~/.config/nvim
 ```
 
 
