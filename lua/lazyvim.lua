@@ -20,12 +20,7 @@ local lazy = require("lazy")
 
 lazy.setup({
     {import = "plugins"},
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
-    },
-    {"ryanoasis/vim-devicons", lazy = false, priority = 1000 },
-    {"nvim-tree/nvim-web-devicons", lazy = false, priority = 1000 },
+    {import = "colorchemes"},
+    { "ryanoasis/vim-devicons", lazy = false, priority = 1000 },
+    { "nvim-tree/nvim-web-devicons", lazy = false, priority = 1000 },
 })

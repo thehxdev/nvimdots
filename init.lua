@@ -1,5 +1,4 @@
 require("keymaps")
 require("lazyvim")
 require("options")
-require("themes/tokyonight_theme")
 require("colorscheme")

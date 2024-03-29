@@ -73,4 +73,4 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
 keymap("n", "U", ":redo<cr>", opts)
 keymap("n", "<leader>qq", ":qa<cr>", opts)
-
+keymap("n", "<leader>t", ":set invexpandtab<CR>", opts)

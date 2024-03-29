@@ -33,6 +33,7 @@ opt.signcolumn     = "yes"                      -- always show the sign column, 
 opt.wrap           = false                      -- display lines as one long line
 opt.scrolloff      = 4                          -- is one of my fav
 opt.sidescrolloff  = 8
+-- opt["guicursor"] = ""
 
 -- Diagnostics signs
 vim.fn.sign_define("DiagnosticSignError",

@@ -151,15 +151,15 @@ return {
                         return actions.select_tab(...)
                     end,
 
-                    ["<Tab>"] = function(...)
-                        local actions = require("telescope.actions")
-                        return actions.toggle_selection + actions.move_selection_worse(...)
-                    end,
+                    -- ["<Tab>"] = function(...)
+                    --     local actions = require("telescope.actions")
+                    --     return actions.toggle_selection + actions.move_selection_worse(...)
+                    -- end,
 
-                    ["<S-Tab>"] = function(...)
-                        local actions = require("telescope.actions")
-                        return actions.toggle_selection + actions.move_selection_better(...)
-                    end,
+                    -- ["<S-Tab>"] = function(...)
+                    --     local actions = require("telescope.actions")
+                    --     return actions.toggle_selection + actions.move_selection_better(...)
+                    -- end,
 
                     ["<C-q>"] = function(...)
                         local actions = require("telescope.actions")

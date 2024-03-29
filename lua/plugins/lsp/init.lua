@@ -70,13 +70,15 @@ return {
         --     capabilities = capabilities,
         -- }
 
-        -- ruff (python linter)
-        -- lspconfig.ruff_lsp.setup {
-        --     cmd = { "ruff" },
-        --     init_options = {
-        --         settings = {
-        --             -- Any extra CLI arguments for `ruff` go here.
-        --             args = {},
+        -- pylyzer
+        -- lspconfig.pylyzer.setup {
+        --     cmd = { "pylyzer", "--server" },
+        --     settings = {
+        --         python = {
+        --             checkOnType = false,
+        --             diagnostics = true,
+        --             inlayHints = true,
+        --             smartCompletion = true,
         --         },
         --     },
         --     handlers = handlers,
@@ -85,16 +87,18 @@ return {
         --     capabilities = capabilities,
         -- }
 
-        -- bash
-        -- lspconfig.bashls.setup {
+
+        -- ruff (python linter)
+        -- lspconfig.ruff_lsp.setup {
+        --     cmd = { "ruff-lsp" },
         --     handlers = handlers,
         --     on_attach = on_attach,
         --     flags = lsp_flags,
         --     capabilities = capabilities,
         -- }
 
-        -- go
-        -- lspconfig.gopls.setup{
+        -- bash
+        -- lspconfig.bashls.setup {
         --     handlers = handlers,
         --     on_attach = on_attach,
         --     flags = lsp_flags,
@@ -122,6 +126,14 @@ return {
         --     },
         -- }
 
+        -- C / C++
+        -- lspconfig.clangd.setup{
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
+
         -- json
         -- lspconfig.jsonls.setup {
         --     handlers = handlers,
@@ -143,7 +155,8 @@ return {
         -- rust
         -- lspconfig.rust_analyzer.setup {
         --     cmd = {
-        --         "rustup", "run", "nightly", "rust-analyzer"
+        --         -- "rustup", "run", "nightly", "rust-analyzer"
+        --         "rustup", "run", "stable", "rust-analyzer"
         --     },
         --     handlers = handlers,
         --     on_attach = on_attach,
@@ -152,20 +165,21 @@ return {
         -- }
 
         -- zig
-        --lspconfig.zls.setup{
-        --    handlers = handlers,
-        --    on_attach = on_attach,
-        --    flags = lsp_flags,
-        --    capabilities = capabilities,
-        --}
+        -- lspconfig.zls.setup{
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
 
         -- javascript / typescript
-        --lspconfig.tsserver.setup {
-        --    handlers = handlers,
-        --    on_attach = on_attach,
-        --    flags = lsp_flags,
-        --    capabilities = capabilities,
-        --}
+        -- lspconfig.tsserver.setup {
+        --     cmd = { "npm", "exec", "typescript-language-server", "--", "--stdio" },
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
 
         -- java
         -- to use jdtls, install it first
@@ -173,15 +187,23 @@ return {
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jdtls
         -- NOTE: Point `-data` to parent directory of your java projects and put /workspace in front of it.
         --
-        --lspconfig.jdtls.setup{
-        --    cmd = { '/home/hx/.local/jdtls/bin/jdtls', '-data', '/home/hx/projects/java/workspace' },
-        --    filetypes = { 'java' },
-        --    handlers = handlers,
-        --    on_attach = on_attach,
-        --    flags = lsp_flags,
-        --    capabilities = capabilities,
-        --}
+        -- lspconfig.jdtls.setup{
+        --     cmd = { '/home/hx/opt/jdtls/bin/jdtls', '-data', '/home/hx/projects/java/workspace' },
+        --     filetypes = { 'java' },
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
 
+
+        -- clojure
+        -- lspconfig.clojure_lsp.setup{
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
 
         -- scala
         -- Install `metals` language server.
@@ -214,6 +236,13 @@ return {
         --    capabilities = capabilities,
         --}
 
+        -- go
+        -- lspconfig.gopls.setup{
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
 
         -- purescript
         --lspconfig.purescriptls.setup{
