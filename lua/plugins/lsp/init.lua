@@ -45,12 +45,20 @@ return {
         --     capabilities = capabilities,
         -- }
 
+        -- jedi
+        -- lspconfig.jedi_language_server.setup {
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
+
         -- pyright
         -- lspconfig.pyright.setup {
-        --    handlers = handlers,
-        --    on_attach = on_attach,
-        --    flags = lsp_flags,
-        --    capabilities = capabilities,
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
         -- }
 
         -- pylsp
@@ -182,6 +190,16 @@ return {
         --     capabilities = capabilities,
         -- }
 
+        -- javascript / typescript
+        -- lspconfig.denols.setup{
+        --     cmd = { "deno", "lsp" },
+        --     root_dir = lspconfig.util.root_pattern("deno.json", "package.json", "deno.jsonc", ".git"),
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
+
         -- java
         -- to use jdtls, install it first
         -- https://github.com/eclipse/eclipse.jdt.ls#installation
@@ -227,6 +245,14 @@ return {
         --    capabilities = capabilities,
         --}
 
+        -- nixd
+        -- lspconfig.nixd.setup{
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
+
 
         -- ocaml
         --lspconfig.ocamllsp.setup{
@@ -254,20 +280,30 @@ return {
         --}
 
         -- racket
-        --lspconfig.racket_langserver.setup{
-        --    handlers = handlers,
-        --    on_attach = on_attach,
-        --    flags = lsp_flags,
-        --    capabilities = capabilities,
-        --}
+        -- lspconfig.racket_langserver.setup{
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
 
         -- elixir
-        --lspconfig.elixirls.setup{
-        --    cmd = { "/home/hx/.local/elixir-ls/language_server.sh" },
-        --    handlers = handlers,
-        --    on_attach = on_attach,
-        --    flags = lsp_flags,
-        --    capabilities = capabilities,
-        --}
+        -- lspconfig.elixirls.setup{
+        --     -- cmd = { "/home/hx/opt/elixir-ls/language_server.sh" },
+        --     cmd = { "elixir-ls" },
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
+
+        -- elixir
+        -- lspconfig.lexical.setup{
+        --     cmd = { "lexical" },
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- }
     end
 }

@@ -14,7 +14,7 @@ return {
                 additional_vim_regex_highlighting = true,
                 disable = { "query" }
             },
-            indent = { enable = true, disable = { "python" } },
+            indent = { enable = true, disable = { } },
             rainbow = { enable = true, max_file_lines = nil },
         })
     end
