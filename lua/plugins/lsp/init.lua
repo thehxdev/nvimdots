@@ -3,7 +3,9 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function ()
         -- Disable lsp
-        return
+        if true then
+            return
+        end
 
         local lspconfig = require('lspconfig')
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
