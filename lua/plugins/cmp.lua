@@ -30,7 +30,7 @@ return {
             Module = "",
             Property = "",
             Unit = "",
-            Value = "",
+            Value = "",
             Enum = "",
             Keyword = "󰌆",
             Snippet = "",

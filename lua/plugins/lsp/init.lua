@@ -2,6 +2,9 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     config = function ()
+        -- Disable lsp
+        return
+
         local lspconfig = require('lspconfig')
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -255,13 +258,13 @@ return {
 
 
         -- ocaml
-        --lspconfig.ocamllsp.setup{
-        --    cmd = { "/home/hx/.opam/default/bin/ocamllsp" }
+        -- lspconfig.ocamllsp.setup{
+        --    cmd = { "/home/hx/.opam/default/bin/ocamllsp" },
         --    handlers = handlers,
         --    on_attach = on_attach,
         --    flags = lsp_flags,
         --    capabilities = capabilities,
-        --}
+        -- }
 
         -- go
         -- lspconfig.gopls.setup{

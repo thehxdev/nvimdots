@@ -1,3 +1,4 @@
+-- local colorscheme = "gruberdarker"
 local colorscheme = "tokyonight"
 -- local colorscheme = "catppuccin"
 -- local colorscheme = "gruvbox"
