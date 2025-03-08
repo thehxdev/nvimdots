@@ -3,9 +3,9 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function ()
         -- Disable lsp
-        if true then
-            return
-        end
+        -- if true then
+        --     return
+        -- end
 
         local lspconfig = require('lspconfig')
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -141,12 +141,12 @@ return {
         -- }
 
         -- C / C++
-        -- lspconfig.clangd.setup{
-        --     handlers = handlers,
-        --     on_attach = on_attach,
-        --     flags = lsp_flags,
-        --     capabilities = capabilities,
-        -- }
+        lspconfig.clangd.setup{
+            handlers = handlers,
+            on_attach = on_attach,
+            flags = lsp_flags,
+            capabilities = capabilities,
+        }
 
         -- json
         -- lspconfig.jsonls.setup {
@@ -269,12 +269,12 @@ return {
         -- }
 
         -- go
-        -- lspconfig.gopls.setup{
-        --     handlers = handlers,
-        --     on_attach = on_attach,
-        --     flags = lsp_flags,
-        --     capabilities = capabilities,
-        -- }
+        lspconfig.gopls.setup{
+            handlers = handlers,
+            on_attach = on_attach,
+            flags = lsp_flags,
+            capabilities = capabilities,
+        }
 
         -- purescript
         --lspconfig.purescriptls.setup{
