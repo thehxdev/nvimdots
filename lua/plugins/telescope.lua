@@ -13,6 +13,9 @@ return {
         { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Edit recent files" },
         { "<leader>ft", "<cmd>Telescope tags<cr>", desc = "Show project tags" },
     },
+    config = function()
+        require('telescope').load_extension('fzf')
+    end,
     opts = {
         defaults = {
             prompt_prefix = " ",
