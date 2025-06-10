@@ -167,24 +167,24 @@ return {
 
 
         -- rust
-        -- lspconfig.rust_analyzer.setup {
-        --     cmd = {
-        --         -- "rustup", "run", "nightly", "rust-analyzer"
-        --         "rustup", "run", "stable", "rust-analyzer"
-        --     },
-        --     handlers = handlers,
-        --     on_attach = on_attach,
-        --     flags = lsp_flags,
-        --     capabilities = capabilities,
-        -- }
+        lspconfig.rust_analyzer.setup {
+            cmd = {
+                -- "rustup", "run", "nightly", "rust-analyzer"
+                "rustup", "run", "stable", "rust-analyzer"
+            },
+            handlers = handlers,
+            on_attach = on_attach,
+            flags = lsp_flags,
+            capabilities = capabilities,
+        }
 
         -- zig
-        -- lspconfig.zls.setup{
-        --     handlers = handlers,
-        --     on_attach = on_attach,
-        --     flags = lsp_flags,
-        --     capabilities = capabilities,
-        -- }
+        lspconfig.zls.setup{
+            handlers = handlers,
+            on_attach = on_attach,
+            flags = lsp_flags,
+            capabilities = capabilities,
+        }
 
         -- javascript / typescript
         -- lspconfig.tsserver.setup {
