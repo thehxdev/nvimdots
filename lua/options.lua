@@ -44,3 +44,8 @@ vim.fn.sign_define("DiagnosticSignInfo",
     {text = " ", texthl = "DiagnosticSignInfo"})
 vim.fn.sign_define("DiagnosticSignHint",
     {text = "󰌵", texthl = "DiagnosticSignHint"})
+
+if vim.fn.executable('rg') == 1 then
+  vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
+  vim.opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
+end
