@@ -60,13 +60,13 @@ return {
         })
 
         -- ruff (python linter)
-        lsp.enable('ruff_lsp', {
-            cmd = { 'ruff-lsp' },
-            handlers = handlers,
-            on_attach = on_attach,
-            flags = lsp_flags,
-            capabilities = capabilities,
-        })
+        -- lsp.enable('ruff_lsp', {
+        --     cmd = { 'ruff-lsp' },
+        --     handlers = handlers,
+        --     on_attach = on_attach,
+        --     flags = lsp_flags,
+        --     capabilities = capabilities,
+        -- })
 
         -- bash
         -- lsp.enable('bashls', {
