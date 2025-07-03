@@ -11,8 +11,9 @@ return {
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         vim.diagnostic.config({
-            float={border="rounded"},
-            virtual_text=false -- This line will disable inline diagnostics
+            float = {border="rounded"},
+            -- This line will disable inline diagnostics
+            virtual_text = false
         })
 
         local handlers =  {
@@ -46,65 +47,61 @@ return {
             -- }
         })
 
-        -- local 
+        local enabled_servers = { 'pylsp', 'clangd', 'gopls' }
+        for _, s in ipairs(enabled_servers) do
+            lsp.enable(s)
+        end
 
         -----
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
         -----
 
-        -- TEMPLATE
-        -- lsp.enabel('LSP_NAME_IN_SERVER_CONFIGURATION', {
-        --     handlers = handlers,
-        --     on_attach = on_attach,
-        --     capabilities = capabilities,
-        -- })
-
         -- pylsp
-        lsp.enable('pylsp', {
-            cmd = { 'pylsp' },
+        lsp.config('pylsp', {
+            -- cmd = { 'pylsp' },
+            settings = {
+                pylsp = {
+                    -- configurationSources = { 'flake8' },
+                    plugins = {
+                        flake8 = {
+                            enabled = false,
+                            ignore = { 'E501', 'E231' },
+                            maxLineLength = -1,
+                        },
+                        black = { enabled = false },
+                        autopep8 = { enabled = false },
+                        mccabe = { enabled = false },
+                        pycodestyle = {
+                            enabled = false,
+                            ignore = { 'E501', 'E231' },
+                            maxLineLength = -1,
+                        },
+                        pyflakes = {enabled = false},
+                    },
+                },
+            },
         })
 
-        -- ruff (python linter)
-        -- lsp.enable('ruff_lsp', {
-        --     cmd = { 'ruff-lsp' },
-        -- })
-
-        -- bash
-        -- lsp.enable('bashls')
-
-        -- lua
-        -- lsp.enable('lua_ls')
-
-        -- C / C++
-        lsp.enable('clangd')
-
-        -- json
-        -- lsp.enable('jsonls')
-
         -- haskell
-        -- lsp.enable('hls', {
+        -- lsp.config('hls', {
         --     filetypes = { 'haskell', 'lhaskell', 'cabal' },
         -- })
 
-
         -- rust
-        lsp.enable('rust_analyzer', {
+        lsp.config('rust_analyzer', {
             cmd = {
                 -- "rustup", "run", "nightly", "rust-analyzer"
                 "rustup", "run", "stable", "rust-analyzer"
             },
         })
 
-        -- zig
-        lsp.enable('zls')
-
         -- javascript / typescript
-        -- lsp.enable('tsserver', {
+        -- lsp.config('tsserver', {
         --     cmd = { "npm", "exec", "typescript-language-server", "--", "--stdio" },
         -- })
 
         -- javascript / typescript
-        -- lsp.enable('denols', {
+        -- lsp.config('denols', {
         --     cmd = { "deno", "lsp" },
         --     root_dir = lspconfig.util.root_pattern("deno.json", "package.json", "deno.jsonc", ".git"),
         -- })
@@ -115,54 +112,37 @@ return {
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jdtls
         -- NOTE: Point `-data` to parent directory of your java projects and put /workspace in front of it.
         --
-        -- lsp.enable('jdtls', {
+        -- lsp.config('jdtls', {
         --     cmd = { '/home/hx/opt/jdtls/bin/jdtls', '-data', '/home/hx/projects/java/workspace' },
         --     filetypes = { 'java' },
         -- })
 
-
-        -- clojure
-        -- lsp.enable('clojure_lsp')
-
         -- scala
         -- Install `metals` language server.
         -- ./coursier install metals
-        -- lsp.enable('metals', {
+        -- lsp.config('metals', {
         --    cmd = { "/home/hx/.local/share/coursier/bin/metals" },
         -- })
 
         -- nix
-        -- lsp.enable('rnix', {
+        -- lsp.config('rnix', {
         --    cmd = { '/home/hx/.cargo/bin/rnix-lsp' },
         --    filetypes = { 'nix' },
         -- })
 
-        -- nixd
-        -- lsp.enable('nixd')
-
-
         -- ocaml
-        -- lsp.enable('ocamllsp', {
+        -- lsp.config('ocamllsp', {
         --    cmd = { "/home/hx/.opam/default/bin/ocamllsp" },
         -- })
 
-        -- go
-        lsp.enable('gopls')
-
-        -- purescript
-        -- lsp.enable('purescriptls')
-
-        -- racket
-        -- lsp.enable('racket_langserver')
-
         -- elixir
-        -- lsp.enable('elixirls', {
+        -- lsp.config('elixirls', {
         --     -- cmd = { "/home/hx/opt/elixir-ls/language_server.sh" },
         --     cmd = { "elixir-ls" },
         -- })
 
         -- elixir
-        -- lsp.enable('lexical', {
+        -- lsp.config('lexical', {
         --     cmd = { "lexical" },
         -- })
     end
