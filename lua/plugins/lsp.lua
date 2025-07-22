@@ -47,6 +47,7 @@ return {
             -- }
         })
 
+        -- add enabled language servers here
         local enabled_servers = { 'pylsp', 'clangd', 'gopls' }
         for _, s in ipairs(enabled_servers) do
             lsp.enable(s)
@@ -97,7 +98,8 @@ return {
 
         -- javascript / typescript
         -- lsp.config('tsserver', {
-        --     cmd = { "npm", "exec", "typescript-language-server", "--", "--stdio" },
+        --     cmd = { "npx", "typescript-language-server", "--stdio" },
+        --     filetypes = { 'javascript', 'typescript' },
         -- })
 
         -- javascript / typescript
