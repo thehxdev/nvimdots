@@ -7,8 +7,19 @@ return {
         --     return
         -- end
 
+        local capabilities = {
+            textDocument = {
+                foldingRange = {
+                    dynamicRegistration = false,
+                    lineFoldingOnly = true
+                }
+            }
+        }
+
+        capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+
         local lsp = vim.lsp
-        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         vim.diagnostic.config({
             float = {border="rounded"},
@@ -48,7 +59,7 @@ return {
         })
 
         -- add enabled language servers here
-        local enabled_servers = { 'pylsp', 'clangd', 'gopls' }
+        local enabled_servers = { 'pylsp', 'clangd', 'gopls', 'rust_analyzer', 'zls' }
         for _, s in ipairs(enabled_servers) do
             lsp.enable(s)
         end
