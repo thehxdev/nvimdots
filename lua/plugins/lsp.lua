@@ -19,13 +19,13 @@ return {
         capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
         local lsp = vim.lsp
-        -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         vim.diagnostic.config({
             float = {border="rounded"},
             -- This line will disable inline diagnostics
             virtual_text = false
         })
+        vim.diagnostic.disable()
 
         local handlers =  {
             ["textDocument/hover"] =  lsp.with(lsp.handlers.hover, {border = "rounded"}),
@@ -59,7 +59,8 @@ return {
         })
 
         -- add enabled language servers here
-        local enabled_servers = { 'pylsp', 'clangd', 'gopls', 'rust_analyzer', 'zls' }
+        local enabled_servers = {
+        }
         for _, s in ipairs(enabled_servers) do
             lsp.enable(s)
         end
@@ -69,30 +70,30 @@ return {
         -----
 
         -- pylsp
-        lsp.config('pylsp', {
-            -- cmd = { 'pylsp' },
-            settings = {
-                pylsp = {
-                    -- configurationSources = { 'flake8' },
-                    plugins = {
-                        flake8 = {
-                            enabled = false,
-                            ignore = { 'E501', 'E231' },
-                            maxLineLength = -1,
-                        },
-                        black = { enabled = false },
-                        autopep8 = { enabled = false },
-                        mccabe = { enabled = false },
-                        pycodestyle = {
-                            enabled = false,
-                            ignore = { 'E501', 'E231' },
-                            maxLineLength = -1,
-                        },
-                        pyflakes = {enabled = false},
-                    },
-                },
-            },
-        })
+        -- lsp.config('pylsp', {
+        --     -- cmd = { 'pylsp' },
+        --     settings = {
+        --         pylsp = {
+        --             -- configurationSources = { 'flake8' },
+        --             plugins = {
+        --                 flake8 = {
+        --                     enabled = false,
+        --                     ignore = { 'E501', 'E231' },
+        --                     maxLineLength = -1,
+        --                 },
+        --                 black = { enabled = false },
+        --                 autopep8 = { enabled = false },
+        --                 mccabe = { enabled = false },
+        --                 pycodestyle = {
+        --                     enabled = false,
+        --                     ignore = { 'E501', 'E231' },
+        --                     maxLineLength = -1,
+        --                 },
+        --                 pyflakes = {enabled = false},
+        --             },
+        --         },
+        --     },
+        -- })
 
         -- haskell
         -- lsp.config('hls', {
@@ -130,33 +131,9 @@ return {
         --     filetypes = { 'java' },
         -- })
 
-        -- scala
-        -- Install `metals` language server.
-        -- ./coursier install metals
-        -- lsp.config('metals', {
-        --    cmd = { "/home/hx/.local/share/coursier/bin/metals" },
-        -- })
-
-        -- nix
-        -- lsp.config('rnix', {
-        --    cmd = { '/home/hx/.cargo/bin/rnix-lsp' },
-        --    filetypes = { 'nix' },
-        -- })
-
         -- ocaml
         -- lsp.config('ocamllsp', {
         --    cmd = { "/home/hx/.opam/default/bin/ocamllsp" },
-        -- })
-
-        -- elixir
-        -- lsp.config('elixirls', {
-        --     -- cmd = { "/home/hx/opt/elixir-ls/language_server.sh" },
-        --     cmd = { "elixir-ls" },
-        -- })
-
-        -- elixir
-        -- lsp.config('lexical', {
-        --     cmd = { "lexical" },
         -- })
     end
 }
