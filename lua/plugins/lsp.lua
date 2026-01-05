@@ -7,98 +7,57 @@ return {
         --     return
         -- end
 
-        local capabilities = {
-            textDocument = {
-                foldingRange = {
-                    dynamicRegistration = false,
-                    lineFoldingOnly = true
-                }
-            }
-        }
-
-        capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
-
         local lsp = vim.lsp
+        local diagnostic = vim.diagnostic
 
-        vim.diagnostic.config({
-            float = {border="rounded"},
+        vim.api.nvim_create_autocmd("LspAttach", {
+            callback = function(args)
+                local client = vim.lsp.get_client_by_id(args.data.client_id)
+                if not client then
+                    return
+                end
+
+                local keymap = vim.keymap.set
+                local opts = { noremap=true, silent=true }
+                keymap('n', 'gl', diagnostic.open_float, opts)
+                keymap('n', 'gL', diagnostic.setloclist, opts)
+                keymap('n', 'gd', lsp.buf.definition, opts)
+                keymap('n', 'gD', lsp.buf.declaration, opts)
+
+                -- disable lsp server's syntax highlighting
+                client.server_capabilities.semanticTokensProvider = nil
+            end,
+        })
+
+        diagnostic.config({
+            float = { border="rounded", },
             -- This line will disable inline diagnostics
             virtual_text = false
         })
-        vim.diagnostic.disable()
-
-        local handlers =  {
-            ["textDocument/hover"] =  lsp.with(lsp.handlers.hover, {border = "rounded"}),
-            ["textDocument/signatureHelp"] =  lsp.with(lsp.handlers.signature_help, {border = "rounded" }),
-        }
-
-        local keymap = vim.keymap.set
-        local opts = { noremap=true, silent=true }
-        keymap('n', 'gl', vim.diagnostic.open_float, opts)
-        keymap('n', 'gL', vim.diagnostic.setloclist, opts)
-        keymap('n', 'gd', lsp.buf.definition, opts)
-        keymap('n', 'gD', lsp.buf.declaration, opts)
-        keymap('n', 'gr', lsp.buf.references, opts)
-        keymap('n', 'K',  lsp.buf.hover, opts)
+        -- disable diagnostics to be able to focus :)
+        diagnostic.enable(false)
 
         lsp.config('*', {
-            -- on_attach = function(client, bufnr)
-            --     local buf_keymap = vim.api.nvim_buf_set_keymap
-            --     local bufopts = { noremap=true, silent=true }
-            --     client.server_capabilities.semanticTokensProvider = nil
-            --     buf_keymap(bufnr, 'n', 'gd', lsp.buf.definition, bufopts)
-            --     buf_keymap(bufnr, 'n', 'gD', lsp.buf.declaration, bufopts)
-            --     buf_keymap(bufnr, 'n', 'gr', lsp.buf.references, bufopts)
-            --     buf_keymap(bufnr, 'n', 'K',  lsp.buf.hover, bufopts)
-            -- end,
-            capabilities = capabilities,
-            handlers = handlers,
-            -- flags = {
-            --     debounce_text_changes = 150,
-            -- }
+            capabilities = require('blink.cmp').get_lsp_capabilities(capabilities),
         })
 
         -- add enabled language servers here
         local enabled_servers = {
+            "gopls",
+            "rust_analyzer",
+            "clangd",
+            "ols",
+            "nixd",
+            "lua_ls",
         }
         for _, s in ipairs(enabled_servers) do
             lsp.enable(s)
         end
 
-        -----
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-        -----
 
-        -- pylsp
-        -- lsp.config('pylsp', {
-        --     -- cmd = { 'pylsp' },
-        --     settings = {
-        --         pylsp = {
-        --             -- configurationSources = { 'flake8' },
-        --             plugins = {
-        --                 flake8 = {
-        --                     enabled = false,
-        --                     ignore = { 'E501', 'E231' },
-        --                     maxLineLength = -1,
-        --                 },
-        --                 black = { enabled = false },
-        --                 autopep8 = { enabled = false },
-        --                 mccabe = { enabled = false },
-        --                 pycodestyle = {
-        --                     enabled = false,
-        --                     ignore = { 'E501', 'E231' },
-        --                     maxLineLength = -1,
-        --                 },
-        --                 pyflakes = {enabled = false},
-        --             },
-        --         },
-        --     },
-        -- })
-
-        -- haskell
-        -- lsp.config('hls', {
-        --     filetypes = { 'haskell', 'lhaskell', 'cabal' },
-        -- })
+        -----
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+        -----
 
         -- rust
         lsp.config('rust_analyzer', {
@@ -108,17 +67,47 @@ return {
             },
         })
 
-        -- javascript / typescript
-        -- lsp.config('tsserver', {
-        --     cmd = { "npx", "typescript-language-server", "--stdio" },
-        --     filetypes = { 'javascript', 'typescript' },
-        -- })
+        lsp.config('lua_ls', {
+            settings = { Lua = {} },
+            on_init = function(client)
+                if client.workspace_folders then
+                    local path = client.workspace_folders[1].name
+                    if
+                        path ~= vim.fn.stdpath('config')
+                        and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+                    then
+                        return
+                    end
+                end
+
+                client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                    runtime = {
+                        -- Tell the language server which version of Lua you're using (most
+                        -- likely LuaJIT in the case of Neovim)
+                        version = 'LuaJIT',
+                        -- Tell the language server how to find Lua modules same way as Neovim
+                        -- (see `:h lua-module-load`)
+                        path = {
+                            'lua/?.lua',
+                            'lua/?/init.lua',
+                        },
+                    },
+                    -- Make the server aware of Neovim runtime files
+                    workspace = {
+                        checkThirdParty = false,
+                        library = {
+                            vim.env.VIMRUNTIME
+                        }
+                    }
+                })
+            end,
+        })
 
         -- javascript / typescript
-        -- lsp.config('denols', {
-        --     cmd = { "deno", "lsp" },
-        --     root_dir = lspconfig.util.root_pattern("deno.json", "package.json", "deno.jsonc", ".git"),
-        -- })
+        lsp.config('tsserver', {
+            cmd = { "bunx", "typescript-language-server", "--stdio" },
+            filetypes = { 'javascript', 'typescript' },
+        })
 
         -- java
         -- to use jdtls, install it first
